@@ -1,14 +1,10 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+//import { useHistory } from "react-router-dom";
 import { PullToRefresh } from "react-js-pull-to-refresh";
-import {
-  PullDownContent,
-  ReleaseContent,
-  RefreshContent,
-} from "react-js-pull-to-refresh";
+import { PullDownContent, ReleaseContent } from "react-js-pull-to-refresh";
 
 function PullToRefreshWrapper(props) {
-  let history = useHistory();
+  //let history = useHistory();
   function handleLoad() {
     console.log("reload");
   }
