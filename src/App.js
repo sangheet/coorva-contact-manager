@@ -8,7 +8,7 @@ import { Grid } from "@material-ui/core";
 import MainList from "./components/MainList/MainList";
 import ContactDetails from "./components/ContactDetail/ContactDetails";
 import { getContactsByFilter } from "./services/getContactByFilter";
-import PullToRefreshWrapper from "./PullToRefreshWrapper";
+
 import HeaderComponent from "./components/HeaderComponent";
 
 function App() {
