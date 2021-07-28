@@ -1,24 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+
+import { getContacts } from "./services/getContacts";
+
+import { Grid } from "@material-ui/core";
+
+import MainList from "./components/MainList/MainList";
+import ContactDetails from "./components/ContactDetail/ContactDetails";
+import { getContactsByFilter } from "./services/getContactByFilter";
+import PullToRefreshWrapper from "./PullToRefreshWrapper";
+import HeaderComponent from "./components/HeaderComponent";
 
 function App() {
+  const [contactData, setContactData] = React.useState([]);
+  const [selectedContact, setSelectedContact] = React.useState(null);
+  const [searchValue, setSearchValue] = React.useState(null);
+
+  React.useEffect(() => {
+    getContacts(setContactData);
+  }, []);
+  React.useEffect(() => {
+    searchValue && getContactsByFilter(setContactData, searchValue);
+  }, [searchValue]);
+
+  const clearSelected = () => setSelectedContact(null);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Grid container className="App">
+      <Grid md={selectedContact ? 10 : 12}>
+        <HeaderComponent sendSearchValue={setSearchValue} />
+        {contactData && (
+          <MainList
+            tableData={contactData}
+            selectContact={setSelectedContact}
+            sendSearchValue={setSearchValue}
+          />
+        )}
+      </Grid>
+      {selectedContact && (
+        <Grid md={2}>
+          <ContactDetails
+            contactId={selectedContact}
+            clearSelected={clearSelected}
+          />
+        </Grid>
+      )}
+    </Grid>
   );
 }
 

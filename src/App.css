@@ -1,38 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;600&display=swap');
+
+
 .App {
   text-align: center;
+  background-color: white;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  transition: all .5s;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.mainList {
+  display: inline-flex;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.tableContainer {
+  padding: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.contact-details-container {
+  background-color: #DF1882;
   color: white;
+  z-index: 1000;
+  height: 100vh;
+  text-align: center;
+  justify-content: center;
+  padding-top: 25px;
 }
 
-.App-link {
-  color: #61dafb;
+.contact-search-container {
+  width: 100%;
+  margin: 5px;
+  border: 1px solid #DF1882;
+  display: flex;
+  border-radius: 30px;
+  position: relative;
+  float: right;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.contact-search-container input {
+  padding: 0 0 0 30px;
+  color: #DF1882;
+  background-color: transparent;
+  width: 35%;
+  border: none;
 }
+.contact-search-container input:focus {
+  outline: none;
+}
+.contact-search-container select {
+  color: #DF1882;
+  width: 30%;
+  padding: 10px 0;
+  border: none;
+}
+.contact-search-container button {
+  background-color: #DF1882;
+  border-radius: 0 30px 30px 0;
+  width: 30%;
+  color: white;
+  padding: 10px;
+  border: none;
+}
+.contact-search-container label {
+  padding: 5px;
+  color: #080808;
+  font-size: small;
+  border-left:  1px solid#DF1882;
+}
+
+.headerContainer {
+  padding: 30px;
+  margin: 5px;
+}
+.logo {
+  transform: scale(.9);
+}
+
+button {
+  background-color: #DF1882;
+  padding: 15px;
+  margin: 5px;
+  color: white;
+  border-radius: 100px;
+  border: none;
+}
+button:hover {
+  background-color: #8a0f50;
+}
+
+::-webkit-scrollbar{
+  width: 6px;
+  height: 6px;
+  }
+  ::-webkit-scrollbar-thumb{
+  background: #CF007C;
+  border-radius: 30px;
+  }
+  ::-webkit-scrollbar-thumb:hover{
+  background: #8F0E0E;
+  }
+  ::-webkit-scrollbar-track{
+  background: #F5F0F2;
+  border-radius: 30px;
+  box-shadow: inset 0px 0px 0px 0px #F0F0F0;
+  }
